@@ -58,7 +58,7 @@ function! Svn_diff_windows()
     silent! setlocal bufhidden=delete nobackup noswf nobuflisted nowrap buftype=nofile
     for file in files
         execute 'normal :r!LANG=ja_JP.UTF8 svn info ' . file . " | grep 'URL:'\n"
-        execute 'normal :r!LANG=ja_JP.UTF8 svn log -r PREV:HEAD --limit=1 ' . file . "\n"
+        execute 'normal :r!LANG=ja_JP.UTF8 svn log --revision PREV:HEAD --limit=1 ' . file . "\n"
     endfor
     setlocal nomodifiable
     goto 1
